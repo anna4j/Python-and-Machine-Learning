@@ -1,1 +1,3 @@
-# This folder contains all my Machine Learning Practice problems
+# Machine Learning Practice
+
+This repositary contains all my Python practice questions. 
