@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv(r"C:\Users\anush\Downloads\creditcard.csv\creditcard.csv")
 #
-# corr = df.corr()
+ corr = df.corr()
 # # ax = sns.heatmap(corr)
 # # ax.set_xticklabels(
 # #     ax.get_xticklabels(),
@@ -31,7 +31,7 @@ df = pd.read_csv(r"C:\Users\anush\Downloads\creditcard.csv\creditcard.csv")
 #                 square=True,
 #                 linewidth=.5, cbar_kws={"shrink": .5}, ax=ax)
 #
-# sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns)
+sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns)
 #
 # df1 = df.drop(['V13','V24','V27','V28','V15','V26'], axis=1)
 # corr = df1.corr()
