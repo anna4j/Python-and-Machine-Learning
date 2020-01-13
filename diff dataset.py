@@ -65,22 +65,32 @@ df.head()
 X = df.drop(['QuoteConversion_Flag'], axis = 1)
 y = df['QuoteConversion_Flag']
 
-df['Coverage_info1'] = np.sin(df['Coverage_info1'])
-df['Sales_info2'] = np.sin(df['Sales_info2'])
-df['Sales_info3'] = np.sin(df['Sales_info3'])
-df['Geographic_info3'] = np.sin(df['Geographic_info3'])
-df['Geographic_info2'] = np.sin(df['Geographic_info2'])
-df['Geographic_info1'] = np.sin(df['Geographic_info1'])
-df['Property_info5'] = np.sin(df['Property_info5'])
+#df['Coverage_info1'] = np.sin(df['Coverage_info1'])
+#df['Sales_info2'] = np.sin(df['Sales_info2'])
+#df['Sales_info3'] = np.sin(df['Sales_info3'])
+#df['Geographic_info3'] = np.sin(df['Geographic_info3'])
+#df['Geographic_info2'] = np.sin(df['Geographic_info2'])
+#df['Geographic_info1'] = np.sin(df['Geographic_info1'])
+#df['Property_info5'] = np.sin(df['Property_info5'])
 
-df['Coverage_info1']
+df['Field_info1'].value_counts()
+bins = [0,2,4,7]
+group_names = ['1', '2', '3']
+df['Field_info1p'] = pd.cut(df['Field_info1'], bins, labels = group_names)
+ix = df['Field_info1'].groupby('Field_info1p').column()
+df.pivot(columns = 'bins', index=ix).fillna(0)
 
-classifier = RandomForestClassifier(random_state = 42)
-X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
-classifier.fit(X_train,y_train)
-y_pred = classifier.predict(X_test)
 
-print(confusion_matrix(y_test, y_pred))
-print(accuracy_score(y_test,y_pred))
-print(classification_report(y_test, y_pred))
+
+
+
+
+#classifier = RandomForestClassifier(random_state = 42)
+#X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+#classifier.fit(X_train,y_train)
+#y_pred = classifier.predict(X_test)
+
+#print(confusion_matrix(y_test, y_pred))
+#print(accuracy_score(y_test,y_pred))
+#print(classification_report(y_test, y_pred))
 
