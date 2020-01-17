@@ -18,7 +18,7 @@ df = pd.read_csv(r"C:\Users\anush\OneDrive\Desktop\Python-and-Machine-Learning\w
 #df.shape
 #df.isnull().any()
 df['grade'] = 1 # good
-df.grade[df.quality < 7] = 0 # not good
+df.grade[df.quality < 7] = 0 # not good0
 
 plt.figure(figsize = (8,8))
 labels = df['grade'].value_counts().index
